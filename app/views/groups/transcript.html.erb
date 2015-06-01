@@ -1,0 +1,57 @@
+<% if current_user.admin? %>
+
+<% group = Group.find(2) %>
+<% group.users.each do |user| %>
+      <% user.posts.each do |post| %>
+
+      <p>
+        <strong>Title:</strong>
+        <%= post.title %>
+      </p>
+
+      <p>
+        <strong>Problem ID:</strong>
+        <%= post.problemID %>
+      </p>
+
+      <p>
+        <strong>Draft: <%= post.id %></strong>
+        <div style="width: 800px;  background-color: #FFFFFF; outline: 2px solid #A05E1D; padding: 5px", class="boxed">
+        <%=raw post.draft %>
+        </div>
+      </p>
+
+      <br>
+      <strong>Comments:</strong>
+      <br>
+      <% post.comments.each do |comment| %>
+        <p>
+          <div class="boxed">
+          <%= comment.body %>
+        </div>
+        </p>
+        <p>
+          <strong>By:</strong>
+          <%= comment.commenter %>
+        </p>
+        <br>
+      <% end %>
+
+      <p>
+        <strong>Final:</strong>
+        <div style="width: 800px;  background-color: #FFFFFF; outline: 2px solid #A05E1D; padding: 5px", class="boxed">
+        <%=raw post.content %>
+        </div>
+      </p>
+   
+
+    
+ <% end %>
+  <% end %>
+
+
+
+
+
+<% end %>
+

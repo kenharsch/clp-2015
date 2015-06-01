@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
   get 'groups/remove_user'
 
-
+  get 'groups/transcript'
   
   resources :evaluations do
     post :update_row_order, on: :collection
