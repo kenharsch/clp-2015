@@ -1,9 +1,10 @@
 <% if current_user.admin? %>
 
 <% group = Group.find(2) %>
-<% group.users.each do |user| %>
-      <% user.posts.each do |post| %>
+<% u = group.users %>
+<% p = Post.where(user_id: u).order(:created_at) %>
 
+      <% p.each do |post| %>
       <p>
         <strong>Title:</strong>
         <%= post.title %>
@@ -46,7 +47,7 @@
    
 
     
- <% end %>
+
   <% end %>
 
 
