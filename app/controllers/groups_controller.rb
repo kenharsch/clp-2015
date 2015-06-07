@@ -27,8 +27,8 @@ class GroupsController < ApplicationController
     @users = User.all
   end
 
-  def transcripts
-    @groups = Group.all
+  def transcript
+    @group = Group.find(params[:id])
   end
   # GET /groups/1/edit
   def edit

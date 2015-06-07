@@ -1,0 +1,109 @@
+<% if current_user.admin? %>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+<h3>Post Peer Grades</h3>
+<table class="table table-striped" 
+  <thead>
+    <tr>
+     <tr>
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Id</th>
+      <th>Issue</th>
+      <th>Evaluation</th>
+      <th>Opinion</th>
+      <th>Peer Grade</th>
+      <th>Avg. Rank</th>
+    </tr>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.user_name %></td>
+        <td><%= post.user_nickname %></td>
+        <td><%= post.id %></td>
+        <td><%= post.pg_1 %></td>
+        <td><%= post.pg_2 %></td>
+        <td><%= post.pg_3 %></td>
+        <td><%= post.peer_grade %></td>
+        <td><%= post.avg_rank %></td>
+      </tr>
+    
+    <% end %>
+    
+  </tbody>
+  
+</table>
+
+<h3> User Delta Scores </h3>
+<table class="table table-striped" 
+  <thead>
+    <tr>
+     <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Delta Score</th>
+      <th>Row Order Updates</th>
+      <th>Post Visits</th>
+    </tr>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.nickname %></td>
+        <td><%= user.delta %></td>
+        <td><%= ::Ahoy::Event.where(user_id: user.id, name: "Updated Row Order").count %></td>
+        <td><%= ::Ahoy::Event.where(user_id: user.id, name: "Visited Post").count %></td>
+      </tr>
+    
+    <% end %>
+    
+  </tbody>
+  
+</table>
+
+<h3> User Delta Scores Wiki 1 </h3>
+<table class="table table-striped" 
+  <thead>
+    <tr>
+     <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Delta Score</th>
+    </tr>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.nickname %></td>
+        <td><%= user.delta %></td>
+      </tr>
+    
+    <% end %>
+    
+  </tbody>
+  
+</table>
+
+
+
+<% else %>
+<h2>You cannot access this page.</h2>
+
+<% end %>

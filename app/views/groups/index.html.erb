@@ -11,7 +11,7 @@
           <tr>
         
         <% @groups.each do |group| %>
-        <tr><th bgcolor="#639CA9"><%= group.name %></th>
+        <tr><th bgcolor="#639CA9"><%= group.name %>&nbsp<%= link_to 'Transcript', controller: "groups", action: "transcript", id: group.id %></th>
           <th bgcolor="#639CA9"></th>
           <th bgcolor="#639CA9"></th>
           <th bgcolor="#639CA9"></th>

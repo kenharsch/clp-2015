@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'team/teampage'
 
   get 'admin_pg/index'
+
+  get 'admin_pg/admin2'
  
   devise_for :users
   get 'sessions/new'
