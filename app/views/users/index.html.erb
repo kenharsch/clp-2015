@@ -29,7 +29,7 @@
          <td class="list_description">ADMIN</td>
          <% end %>
         <% if !user.group.nil? %>
-        <td class="list_description"><%= user.group.name %></td>
+        <td class="list_description"><%= user.group.id %></td>
         <% end %>
         <% if current_user.id == 1 || 2 %>
         <td class="list_description"><%= user.name %></td>

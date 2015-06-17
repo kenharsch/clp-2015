@@ -12,7 +12,11 @@ class AdminPgController < ApplicationController
   	@comments = Comment.all
   	@events = ::Ahoy::Event.all
   	@evaluations = Evaluation.all.order(:post_id)
-		
+  end
+
+  def group_pg
+    @groups = Group.all 
+    
   end
 
 end

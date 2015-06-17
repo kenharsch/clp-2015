@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'admin_pg/index'
 
   get 'admin_pg/admin2'
+
+  get 'admin_pg/group_pg'
  
   devise_for :users
   get 'sessions/new'

@@ -41,6 +41,11 @@
           <%= comment.commenter %>
         </p>
         <br>
+         <p>
+          <strong>Created:</strong>
+          <%= comment.created_at %>
+        </p>
+        <br>
       <% end %>
 
       <p>
@@ -49,7 +54,12 @@
         <%=raw post.content %>
         </div>
       </p>
-   
+       <br>
+         <p>
+          <strong>Final Length - Draft Length:</strong>
+          <%= post.delta_words %>
+        </p>
+        <br>
 
     
 

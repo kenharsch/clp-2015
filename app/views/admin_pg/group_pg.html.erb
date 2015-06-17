@@ -1,0 +1,107 @@
+<% if current_user.admin? %>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+<h3>Group Statistics</h3>
+<table class="table table-striped" 
+  <thead>
+    <tr>
+     <tr>
+      <th>Name</th>
+      <th>ID</th>
+      <th>Comments</th>
+      <th>Reads</th>
+      <th>Edits</th>
+    </tr>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.name %></td>
+        <td><%= group.id %></td>
+        <td><%= group.gp_comments %></td>
+        <td><%= group.gp_visits %></td>
+        <td><%= group.gp_edits %></td>
+      </tr>
+    
+    <% end %>
+    
+  </tbody>
+  </table>
+
+  <h3>Work Phase</h3>
+  <table class="table table-striped" 
+  <thead>
+    <tr>
+     <tr>
+      <th>Name</th>
+      <th>ID</th>
+      <th># Users</th>
+      <th>Comments Work Phase</th>
+      <th>Visits</th>
+      <th>Edits</th>
+    </tr>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.name %></td>
+        <td><%= group.id %></td>
+        <td><%= group.users.count %></td>
+        <td><%= group.gp_comments_work_phase_1 + group.gp_comments_work_phase_2 %></td>
+        <td><%= group.gp_visits %></td>
+        <td><%= group.gp_edits %></td>
+      </tr>
+    
+    <% end %>
+    
+  </tbody>
+  </table>
+
+  <h3>Words per Comment</h3>
+  <table class="table table-striped" 
+  <thead>
+    <tr>
+     <tr>
+      <th>Name</th>
+      <th>ID</th>
+      <th>Comments Work Phase 1</th>
+      <th>Words per Comment 1</th>
+      <th>Avg. Time before due(min)</th>
+      <th>Comments Work Phase 2</th>
+      <th>Words per Comment 2</th>
+       <th>Avg. Time before due(min)</th>
+    </tr>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.name %></td>
+        <td><%= group.id %></td>
+        <td><%= group.gp_comments_work_phase_1 %></td>
+        <td><%= group.gp_words_per_comment_1 %></td>
+        <td><%= group.gp_comment_time_before_due_1 %></td>
+        <td><%= group.gp_comments_work_phase_2 %></td>
+        <td><%= group.gp_words_per_comment_2 %></td>
+        <td><%= group.gp_comment_time_before_due_2 %></td>
+      </tr>
+    
+    <% end %>
+    
+  </tbody>
+  </table>
+
+
+<% else %>
+<h2>You cannot access this page.</h2>
+
+<% end %>
