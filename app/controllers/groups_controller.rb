@@ -30,6 +30,12 @@ class GroupsController < ApplicationController
   def transcript
     @group = Group.find(params[:id])
   end
+
+  def analysis
+    @group = Group.find(params[:id])
+    @comments_1 = @group.gp_comments_work_phase_1
+    @comments_2 = @group.gp_comments_work_phase_2
+  end
   # GET /groups/1/edit
   def edit
   end

@@ -5,6 +5,41 @@ table, th, td {
     border-collapse: collapse;
 }
 </style>
+
+<h3>Post Statistics</h3>
+<table class="table table-striped" 
+  <thead>
+    <tr>
+     <tr>
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Peer Grade</th>
+      <th>Avg. Rank</th>
+      <th>Draft Length</th>
+      <th>Final Length</th>
+      <th>Delta Words (draft to final)</th>
+    </tr>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.user_name %></td>
+        <td><%= post.user_nickname %></td>
+        <td><%= post.peer_grade %></td>
+        <td><%= post.avg_rank %></td>
+        <td><%= post.draft_length %></td>
+        <td><%= post.final_length %></td>
+        <td><%= post.delta_words %></td>
+      </tr>
+    
+    <% end %>
+    
+  </tbody>
+  
+</table>
+
 <h3>Post Peer Grades</h3>
 <table class="table table-striped" 
   <thead>
@@ -35,66 +70,6 @@ table, th, td {
         <td><%= post.peer_grade %></td>
         <td><%= post.avg_rank %></td>
         <td><%= post.delta_words %></td>
-      </tr>
-    
-    <% end %>
-    
-  </tbody>
-  
-</table>
-
-<h3> User Delta Scores </h3>
-<table class="table table-striped" 
-  <thead>
-    <tr>
-     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Nickname</th>
-      <th>Delta Score</th>
-      <th>Row Order Updates</th>
-      <th>Post Visits</th>
-    </tr>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= user.name %></td>
-        <td><%= user.nickname %></td>
-        <td><%= user.delta %></td>
-        <td><%= ::Ahoy::Event.where(user_id: user.id, name: "Updated Row Order").count %></td>
-        <td><%= ::Ahoy::Event.where(user_id: user.id, name: "Visited Post").count %></td>
-      </tr>
-    
-    <% end %>
-    
-  </tbody>
-  
-</table>
-
-<h3> User Delta Scores Wiki 1 </h3>
-<table class="table table-striped" 
-  <thead>
-    <tr>
-     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Nickname</th>
-      <th>Delta Score</th>
-    </tr>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= user.name %></td>
-        <td><%= user.nickname %></td>
-        <td><%= user.delta %></td>
       </tr>
     
     <% end %>

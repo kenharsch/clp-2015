@@ -11,7 +11,7 @@
         @second_entry = ''
         @third_entry = ''
       elsif current_user.admin?
-        @first_entry = 'Overview'
+        @first_entry = 'User Stats'
         @first_link = '/admin_pg/index'
         @second_entry = 'Users'
         @second_link = "/users"
@@ -25,6 +25,10 @@
         @sixth_link = "/evaluations"
         @seventh_entry = 'Wikis'
         @seventh_link = "/wiki/show"
+        @eighth_entry = 'Group Stats and Transcripts'
+        @eighth_link = "/admin_pg/group_pg"
+        @ninth_entry = 'Post Statistics'
+        @ninth_link = "/admin_pg/admin2"
         else
         @first_entry = 'My Blog - Editorials'
         @first_link = '/posts'
@@ -130,7 +134,9 @@
             <li><a href="<%= @fourth_link %>"><%= @fourth_entry %></a></li>
             <li><a href="<%= @fifth_link %>"><%= @fifth_entry %></a></li>
             <li><a href="<%= @sixth_link %>"><%= @sixth_entry %></a></li>
-             <li><a href="<%= @seventh_link %>"><%= @seventh_entry %></a></li>
+            <li><a href="<%= @seventh_link %>"><%= @seventh_entry %></a></li>
+            <li><a href="<%= @eighth_link %>"><%= @eighth_entry %></a></li>
+            <li><a href="<%= @ninth_link %>"><%= @ninth_entry %></a></li>
           </ul>
         </div>
         

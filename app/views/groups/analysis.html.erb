@@ -1,0 +1,8 @@
+<%= form_for(@group) do |f| %>
+  <div class="boxed">
+          <%= f.comment.body %>
+  </div>
+  <%= check_box_tag(:shallow) %>
+  <%= label_tag(:shallow, "Shallow") %>
+  <%= f.submit %>
+<% end %>

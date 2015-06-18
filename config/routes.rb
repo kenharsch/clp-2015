@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
   get 'groups/assign'
 
+  get 'groups/analysis'
+
   get 'evaluations/assign'
 
   get 'evaluations/index'

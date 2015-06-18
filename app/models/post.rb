@@ -63,14 +63,28 @@ class Post < ActiveRecord::Base
 		return (rank/i).round(2)
 	end
 
+	def draft_length
+		draft = strip_html_tags(self.draft.to_s)
+		return draft.split.size
+	end
+
+	def final_length
+		final = strip_html_tags(self.content.to_s)
+		return final.split.size
+	end
+
 	def delta_words
 		if self.draft.nil?
 			return 0
 		elsif self.content.nil?
 			return 0
 		else
-			return self.content.split.size - self.draft.split.size
+			return self.final_length - self.draft_length
 		end
+	end
+
+	def strip_html_tags(string)
+    	ActionView::Base.full_sanitizer.sanitize(string)
 	end
 
 end

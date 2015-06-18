@@ -5,15 +5,16 @@ table, th, td {
     border-collapse: collapse;
 }
 </style>
-<h3>Group Statistics</h3>
+<h2>Group Statistics</h2>
+<h3>Group Links</h3>
 <table class="table table-striped" 
   <thead>
     <tr>
      <tr>
       <th>Name</th>
       <th>ID</th>
+      <th>Link to Transcript</th>
       <th>Comments</th>
-      <th>Reads</th>
       <th>Edits</th>
     </tr>
     </tr>
@@ -24,9 +25,9 @@ table, th, td {
       <tr>
         <td><%= group.name %></td>
         <td><%= group.id %></td>
+        <td><%= link_to 'Group Transcript', controller: "groups", action: "transcript", id: group.id %></td>
         <td><%= group.gp_comments %></td>
-        <td><%= group.gp_visits %></td>
-        <td><%= group.gp_edits %></td>
+        <td><%= link_to 'Comment Analysis', controller: "groups", action: "analysis", id: group.id %></td>
       </tr>
     
     <% end %>

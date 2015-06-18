@@ -43,6 +43,69 @@ table, th, td {
   
 </table>
 
+
+<h3> User Delta Scores </h3>
+<table class="table table-striped" 
+  <thead>
+    <tr>
+     <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Delta Score</th>
+      <th>Row Order Updates</th>
+      <th>Post Visits</th>
+    </tr>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.nickname %></td>
+        <td><%= user.delta %></td>
+        <td><%= ::Ahoy::Event.where(user_id: user.id, name: "Updated Row Order").count %></td>
+        <td><%= ::Ahoy::Event.where(user_id: user.id, name: "Visited Post").count %></td>
+      </tr>
+    
+    <% end %>
+    
+  </tbody>
+  
+</table>
+
+<h3> User Delta Scores Wiki 1 </h3>
+<table class="table table-striped" 
+  <thead>
+    <tr>
+     <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Delta Score</th>
+    </tr>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.nickname %></td>
+        <td><%= user.delta %></td>
+      </tr>
+    
+    <% end %>
+    
+  </tbody>
+  
+</table>
+
+
+
 <% else %>
 <h2>You cannot access this page.</h2>
 
