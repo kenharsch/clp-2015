@@ -31,6 +31,15 @@ class Group < ActiveRecord::Base
 		return ge
 	end
 
+	def gp_comments_work_phase_1_array
+		gcw = Array.new
+		@users = self.users
+		@users.each do |u|
+			gcw << u.comments.where("created_at >= '2015-02-24 00:00:00' AND created_at <= '2015-03-03 23:59:59'")
+			end
+		return gcw
+	end
+
 	def gp_comments_work_phase_1
 		gcw = 0
 		@users = self.users
