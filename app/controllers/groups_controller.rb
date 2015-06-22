@@ -33,12 +33,19 @@ class GroupsController < ApplicationController
 
   def analysis
     @group = Group.find(params[:id])
-    @comment = Array.new
+    @comments = Array.new
     @users = @group.users
-    @users.each do |u|
-      @comment << u.comments.where("created_at >= '2015-02-24 00:00:00' AND created_at <= '2015-03-03 23:59:59'")
-      @comment << u.comments.where("created_at >= '2015-04-14 00:00:00' AND created_at <= '2015-04-21 23:59:59'")
-    end
+      @users.each do |u|
+        @commentsTemp1 = u.comments.where("created_at >= '2015-02-24 00:00:00' AND created_at <= '2015-03-03 23:59:59'")
+        @commentsTemp2 = u.comments.where("created_at >= '2015-04-14 00:00:00' AND created_at <= '2015-04-21 23:59:59'")
+          @commentsTemp1.each do |c|
+            @comments << c
+          end
+          @commentsTemp2.each do |c|
+            @comments << c
+          end
+      end
+    @comments.sort! { |a,b| a.created_at <=> b.created_at}
   end
   # GET /groups/1/edit
   def edit

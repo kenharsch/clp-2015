@@ -3,6 +3,8 @@ class Group < ActiveRecord::Base
 	has_many :users, :through => :memberships
 	has_many :comments, :through => :users
 
+	accepts_nested_attributes_for :users
+
 	def gp_comments
 		gc = 0
 		@users = self.users

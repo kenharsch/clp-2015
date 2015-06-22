@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :visits
   has_many :comments
 
+  accepts_nested_attributes_for :comments
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 	validates :name, :nickname, :email, :password, presence: true

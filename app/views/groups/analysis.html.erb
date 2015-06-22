@@ -1,9 +1,55 @@
+<h2>Comment Coding for Group <%= @group.id %></h2>
+<b>Comments ordered in ascending order of time of creation.</b>
+<br><br>
+<%= form_for(@group) do |f| %>
+	<% if @group.errors.any? %>
+	<div id="error_explanation">
+			<h2>
+				<%= pluralize(@group.errors.count, "error") %> prohibited
+				this user from being saved:
+			</h2>
 
+			<ul>
+				<% @group.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+	</div>
+	<% end %>
 
+ 	<% @comments.each do |comment| %>
+	<p>
+		<b>Commenter:</b><%= comment.commenter %>&nbsp&nbsp
+		<b>Post Author:</b><%= comment.post.user_nickname %>&nbsp&nbsp
+		<b>Comment Time:</b><%= comment.created_at %>
+    	<div class="boxed">
+    		<%= comment.body %>
+  		</div>
+  	</p>
+  		<%= f.fields_for :comment do |ff| %>
+ 			<div>
+    			<%= ff.label :shallow %>
+    			<%= ff.check_box :shallow %>&nbsp&nbsp
+    			<%= ff.label :grammatical %>
+    			<%= ff.check_box :grammatical %>&nbsp&nbsp
+    			<%= ff.label :challenge %>
+    			<%= ff.check_box :challenge %>&nbsp&nbsp
+    			<%= ff.label :quote %>
+    			<%= ff.check_box :quote %>&nbsp&nbsp
+    			<%= ff.label :reply %>
+    			<%= ff.check_box :reply %>&nbsp&nbsp
+    			<%= ff.label :author %>
+    			<%= ff.check_box :author %>&nbsp&nbsp
+    			<%= ff.label :analytical %>
+    			<%= ff.check_box :analytical %>
 
+  			</div>
+  			<br><br>
+		<% end %> 
 
-<%= form_for @comment do |f| %>
-  Comment <%= f.text_field :body %><br />
-  Shallow    <%= f.check_box :shallow %><br />
-    <%= f.submit %>
-   <% end %>
+	<% end %>
+	<div class="actions">
+		<%= f.submit "Save Coding" %>
+	</div>
+	
+<% end %>
