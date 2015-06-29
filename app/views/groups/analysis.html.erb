@@ -1,24 +1,11 @@
 <h2>Comment Coding for Group <%= @group.id %></h2>
 <b>Comments ordered in ascending order of time of creation.</b>
 <br><br>
-<%= form_for(@group) do |f| %>
-	<% if @group.errors.any? %>
-	<div id="error_explanation">
-			<h2>
-				<%= pluralize(@group.errors.count, "error") %> prohibited
-				this user from being saved:
-			</h2>
 
-			<ul>
-				<% @group.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
-	</div>
-	<% end %>
 
  	<% @comments.each do |comment| %>
 	<p>
+        <% @comment = Comment.find(comment.id) %>
 		<b>Commenter:</b><%= comment.commenter %>&nbsp&nbsp
 		<b>Post Author:</b><%= comment.post.user_nickname %>&nbsp&nbsp
 		<b>Comment Time:</b><%= comment.created_at %>
@@ -26,8 +13,9 @@
     		<%= comment.body %>
   		</div>
   	</p>
-  		<%= f.fields_for(comment) do |ff| %>
- 			<div>
+        <%= form_for @comment, remote: true, :url => {:action => "update", :controller=>"comments", :id => @comment}  do |ff| %>
+  		
+ 			<div class="field">
  				<h4>Kens' Coding</h4>
     			<%= ff.label :shallow %>
     			<%= ff.check_box :shallow %>&nbsp&nbsp
@@ -75,13 +63,13 @@
     			<%= ff.check_box :inctv %>&nbsp&nbsp
 
   			</div>
-
+            <div class="actions">
+            <%= ff.submit "Save Coding", :onclick => "alert('Successfully Saved!')" %>
+            </div>
   			<br><br>
 		<% end %> 
 
-	<% end %>
-	<div class="actions">
-		<%= f.submit "Save Coding" %>
-	</div>
+	
+	
 	
 <% end %>

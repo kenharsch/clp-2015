@@ -37,6 +37,8 @@ Rails.application.routes.draw do
 
   get 'groups/analysis'
 
+  post 'groups/analysis'
+
   get 'evaluations/assign'
 
   get 'evaluations/index'
@@ -48,6 +50,12 @@ Rails.application.routes.draw do
   get 'groups/remove_user'
 
   get 'groups/transcript'
+
+  get 'comments/update'
+
+  post 'comments/update' 
+  
+  patch 'comments/update'  
   
   resources :evaluations do
     post :update_row_order, on: :collection
