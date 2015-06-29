@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618164222) do
+ActiveRecord::Schema.define(version: 20150628213824) do
 
   create_table "ahoy_events", id: false, force: true do |t|
     t.uuid     "visit_id"
@@ -45,13 +45,25 @@ ActiveRecord::Schema.define(version: 20150618164222) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "shallow",     default: false
-    t.boolean  "grammatical", default: false
-    t.boolean  "challenge",   default: false
-    t.boolean  "quote",       default: false
-    t.boolean  "reply",       default: false
-    t.boolean  "author",      default: false
-    t.boolean  "analytical",  default: false
+    t.boolean  "shallow",                 default: false
+    t.boolean  "grammatical",             default: false
+    t.boolean  "challenge",               default: false
+    t.boolean  "quote",                   default: false
+    t.boolean  "reply",                   default: false
+    t.boolean  "author",                  default: false
+    t.boolean  "analytical",              default: false
+    t.boolean  "crit_low",                default: false
+    t.boolean  "crit_med",                default: false
+    t.boolean  "crit_high",               default: false
+    t.boolean  "interaction_independent", default: false
+    t.boolean  "interaction_quasi_int",   default: false
+    t.boolean  "elaborative",             default: false
+    t.boolean  "negotiating",             default: false
+    t.boolean  "actv",                    default: false
+    t.boolean  "exrtv",                   default: false
+    t.boolean  "imrtv",                   default: false
+    t.boolean  "egintv",                  default: false
+    t.boolean  "inctv",                   default: false
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
