@@ -26,7 +26,7 @@
     		<%= comment.body %>
   		</div>
   	</p>
-  		<%= f.fields_for :comment do |ff| %>
+  		<%= f.fields_for(comment) do |ff| %>
  			<div>
  				<h4>Kens' Coding</h4>
     			<%= ff.label :shallow %>
@@ -47,7 +47,7 @@
     			<h4>Critical Thinking</h4>
     			<%= ff.label :crit_low, "Low" %>
     			<%= ff.check_box :crit_low %>&nbsp&nbsp
-    			<%= ff.label :crit_med, "Medium" %>
+    		    <%= ff.label :crit_med, "Medium" %>
     			<%= ff.check_box :crit_med %>&nbsp&nbsp
     			<%= ff.label :crit_high, "High" %>
     			<%= ff.check_box :crit_high %>&nbsp&nbsp
