@@ -109,15 +109,15 @@
         <td><%= evaluation.post.created_at %></td>
         <% end %>
 
-        <% if evaluation.post.problemID = 0 %>
-        <td>Here Comes Everybody</td>
-         <% elsif evaluation.post.problemID = 1 %>
+        <% if evaluation.post.problemID.nil?  %>
+        <td>None</td>
+         <% elsif evaluation.post.problemID == 1 %>
         <td>Remix</td>
-         <% elsif evaluation.post.problemID = 2 %>
+         <% elsif evaluation.post.problemID == 2 %>
         <td>Future Perfect</td>
-         <% elsif evaluation.post.problemID = 3 %>
+         <% elsif evaluation.post.problemID == 3 %>
         <td>Here Comes Everybody</td>
-         <% elsif evaluation.post.problemID = 4 %>
+         <% elsif evaluation.post.problemID == 4 %>
         <td>Alone Together</td>
         <% end %>
 
@@ -133,8 +133,15 @@
 </table>
 </div>
 <p>
-  <strong>Summary Delta Score:</strong>
-  <%= @user.delta %>
+  <h3>Delta Scores:</h3>
+  <p><b>Here Comes Everybody:</b>&nbsp&nbsp
+  <%= @user.delta 3 %></p>
+  <p><b>Remix:</b>&nbsp&nbsp
+  <%= @user.delta 1 %></p>
+  <p><b>Alone Together:</b>&nbsp&nbsp
+  <%= @user.delta 4 %></p>
+  <p><b>Future Perfect:</b>&nbsp&nbsp
+  <%= @user.delta 2 %></p>
 </p>
 
 <% end %>
