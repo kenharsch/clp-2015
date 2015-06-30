@@ -22,40 +22,15 @@ class User < ActiveRecord::Base
   
 
   def delta
-    @posts = Post.where(:user_id=>self.id)
     @evaluations = Evaluation.where(user_id: self.id, post_id: (4..23)).order('user_rank ASC')
-    
-    ordered = true
-    rank = 1
-    @evaluations.each do |eval|
-      if eval.post.ta_rank.nil?
-        ordered = false
-
-      elsif eval.post.ta_rank - rank < 0
-        ordered = false
-        rank = eval.post.ta_rank
-      else
-        rank = eval.post.ta_rank
-      end
-    end
-    
-     delta = 0    
-
-    if ordered == false
-      abs_rank = 1
-      prev_rank = 1
-      @evaluations.each do |evaluation|
-        if evaluation.post.ta_rank.nil?
-          delta += 0
-        elsif evaluation.post.ta_rank == prev_rank 
-          delta += 0
-        elsif evaluation.post.ta_rank == abs_rank
-          delta += 0
-        else
-          delta += (evaluation.post.ta_rank - abs_rank).abs
+    delta = 0
+    @evaluations.each do |e1|
+      @evaluations.each do |e2|
+        if e1.user_rank < e2.user_rank
+          if e1.post.ta_rank > e2.post.ta_rank
+            delta += 1
+          end
         end
-        abs_rank += 1
-        prev_rank = evaluation.post.ta_rank
       end
     end
     return delta
