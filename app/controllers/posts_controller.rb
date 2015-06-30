@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if current_user.admin?
-      @posts = Post.all
+      @posts = Post.all.order(user_nickname: :asc)
+      @posts
     else
       @posts = Post.where(:user_id=>current_user.id)
     end

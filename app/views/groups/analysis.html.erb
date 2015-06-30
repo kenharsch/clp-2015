@@ -16,21 +16,6 @@
         <%= form_for @comment, remote: true, :url => {:action => "update", :controller=>"comments", :id => @comment}  do |ff| %>
   		
  			<div class="field">
- 				<h4>Kens' Coding</h4>
-    			<%= ff.label :shallow %>
-    			<%= ff.check_box :shallow %>&nbsp&nbsp
-    			<%= ff.label :grammatical %>
-    			<%= ff.check_box :grammatical %>&nbsp&nbsp
-    			<%= ff.label :challenge %>
-    			<%= ff.check_box :challenge %>&nbsp&nbsp
-    			<%= ff.label :quote %>
-    			<%= ff.check_box :quote %>&nbsp&nbsp
-    			<%= ff.label :reply %>
-    			<%= ff.check_box :reply %>&nbsp&nbsp
-    			<%= ff.label :author %>
-    			<%= ff.check_box :author %>&nbsp&nbsp
-    			<%= ff.label :analytical %>
-    			<%= ff.check_box :analytical %>
     		</p>
     			<h4>Critical Thinking</h4>
     			<%= ff.label :crit_low, "Low" %>
@@ -50,17 +35,6 @@
     			<%= ff.label :negotiating, "Interactive(negotiating)" %>
     			<%= ff.check_box :negotiating %>&nbsp&nbsp
     		</p>
-    			<h4>Interactive 2</h4>
-    			<%= ff.label :actv, "Active" %>
-    			<%= ff.check_box :actv %>&nbsp&nbsp
-    			<%= ff.label :exrtv, "Explicit Reactive" %>
-    			<%= ff.check_box :exrtv %>&nbsp&nbsp
-    			<%= ff.label :imrtv, "Implicit Reactive" %>
-    			<%= ff.check_box :imrtv %>&nbsp&nbsp
-    			<%= ff.label :egintv, "Engaging Interactive" %>
-    			<%= ff.check_box :egintv %>&nbsp&nbsp
-    			<%= ff.label :inctv, "Interactive" %>
-    			<%= ff.check_box :inctv %>&nbsp&nbsp
 
   			</div>
             <div class="actions">
