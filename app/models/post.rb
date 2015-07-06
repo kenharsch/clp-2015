@@ -11,8 +11,10 @@ class Post < ActiveRecord::Base
 		((self.pg_1 + self.pg_2 + self.pg_3) / 3).round(2)
 	end
 
+
 	def pg_1
-		@evals = Evaluation.where(post_id: self.id)
+		uid = [46, 52, 53, 58, 61, 65, 66, 71, 72, 73, 74, 78, 79, 80, 83, 84, 93, 96, 97, 99, 100, 101, 103, 105, 106, 114, 115, 117, 120, 122, 125, 138]
+		@evals = Evaluation.where(post_id: self.id, user_id: uid)
 		i = 0 
 		grade = 0.0
 			@evals.each do |eval|
@@ -25,6 +27,8 @@ class Post < ActiveRecord::Base
 	end
 
 	def pg_2
+		uid = [46, 52, 53, 58, 61, 65, 66, 71, 72, 73, 74, 78, 79, 80, 83, 84, 93, 96, 97, 99, 100, 101, 103, 105, 106, 114, 115, 117, 120, 122, 125, 138]
+		@evals = Evaluation.where(post_id: self.id, user_id: uid)
 		@evals = Evaluation.where(post_id: self.id)
 		i = 0 
 		grade = 0.0
@@ -38,6 +42,8 @@ class Post < ActiveRecord::Base
 	end
 
 	def pg_3
+		uid = [46, 52, 53, 58, 61, 65, 66, 71, 72, 73, 74, 78, 79, 80, 83, 84, 93, 96, 97, 99, 100, 101, 103, 105, 106, 114, 115, 117, 120, 122, 125, 138]
+		@evals = Evaluation.where(post_id: self.id, user_id: uid)
 		@evals = Evaluation.where(post_id: self.id)
 		i = 0 
 		grade = 0.0

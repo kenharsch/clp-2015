@@ -52,7 +52,10 @@ table, th, td {
       <th>ID</th>
       <th>Name</th>
       <th>Nickname</th>
-      <th>Delta Score</th>
+      <th>Delta HCE</th>
+      <th>Delta Remix</th>
+      <th>Delta AT</th>
+      <th>Delta FP</th>
       <th>Row Order Updates</th>
       <th>Post Visits</th>
     </tr>
@@ -65,7 +68,10 @@ table, th, td {
         <td><%= user.id %></td>
         <td><%= user.name %></td>
         <td><%= user.nickname %></td>
-        <td><%= user.delta %></td>
+        <td><%= user.delta 3 %></td>
+        <td><%= user.delta 1 %></td>
+        <td><%= user.delta 4 %></td>
+        <td><%= user.delta 2 %></td>
         <td><%= ::Ahoy::Event.where(user_id: user.id, name: "Updated Row Order").count %></td>
         <td><%= ::Ahoy::Event.where(user_id: user.id, name: "Visited Post").count %></td>
       </tr>
@@ -76,33 +82,6 @@ table, th, td {
   
 </table>
 
-<h3> User Delta Scores Wiki 1 </h3>
-<table class="table table-striped" 
-  <thead>
-    <tr>
-     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Nickname</th>
-      <th>Delta Score</th>
-    </tr>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= user.name %></td>
-        <td><%= user.nickname %></td>
-        <td><%= user.delta %></td>
-      </tr>
-    
-    <% end %>
-    
-  </tbody>
-  
-</table>
 
 
 

@@ -1,0 +1,25 @@
+<h1>Blog Posts</h1>
+
+  <% @posts.each do |post| %>
+  <p>
+  <% @post = Post.find(post.id) %>
+  <b>Post: </b><%= @post.title %>&nbsp&nbsp
+  <b>Author: </b><%= @post.user_nickname %>&nbsp&nbsp
+  <%= form_for @post do |f| %>
+  <p>
+  <div class="field">
+  <%= f.label :grade, "Grade" %>
+  <%= f.text_field :grade %>
+  <%= f.label :ta_rank, "Rank" %>
+  <%= f.text_field :ta_rank %>
+</div>
+  <div class="actions">
+  <%= f.submit "Save" %>
+</div>
+    <% end %>
+    <% end %>
+<br>
+
+<%= unless current_user.admin?
+  link_to 'New Post', new_post_path 
+  end%>
