@@ -8,7 +8,7 @@ class AdminPgController < ApplicationController
 
   def admin2
   	@users = User.all.order(:nickname)
-  	@posts = Post.where(problemID: 1) 
+  	@posts = Post.where(problemID: 3) 
   	@comments = Comment.all
   	@events = ::Ahoy::Event.all
   	@evaluations = Evaluation.all.order(:post_id)
