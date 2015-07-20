@@ -13,8 +13,7 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:commenter, :body, :user_id, :shallow, :grammatical, :challenge, :quote, :reply, :author, :analytical, :crit_low,
-      									:crit_med, :crit_high, :interaction_independent, :interaction_quasi_int, :elaborative, :negotiating, :actv,
-      									 :exrtv, :imrtv, :egintv, :inctv)
+      params.require(:comment).permit(:commenter, :body, :user_id, :crit_low_1 ,:crit_med_1, :crit_high_1,
+            :crit_low_2,:crit_med_2, :crit_high_2, :interaction_independent, :interaction_quasi_int, :elaborative, :negotiating)
     end
 end

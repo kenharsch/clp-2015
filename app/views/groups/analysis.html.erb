@@ -23,12 +23,21 @@
                 <p><b>Assessing evidence -</b> Evidence used to support inferences is assessed (credibility of sources, credibility of observations). </p>
                 <p><b>Making and judging inferences -</b> Inductive, deductive inferences and value judgements. Includes using evidence to support arguments.</p>
                 <p><b>Using appropriate strategies and tactics -</b> Evaluation of the adequacy of information and procedures for drawing conclusions and/or solving problems.</p>
-    			<%= ff.check_box :crit_low %>&nbsp&nbsp
-                <%= ff.label :crit_low, "Low" %>
-    			<%= ff.check_box :crit_med %>&nbsp&nbsp
-    			<%= ff.label :crit_med, "Medium" %>
-    			<%= ff.check_box :crit_high %>&nbsp&nbsp
-                <%= ff.label :crit_high, "High" %>
+                <% if current_user.id == 2 %>
+    			<%= ff.check_box :crit_low_1%>&nbsp&nbsp
+                <%= ff.label :crit_low_1, "Low" %><p>
+    			<%= ff.check_box :crit_med_1%>&nbsp&nbsp
+    			<%= ff.label :crit_med_1, "Medium" %><p>
+    			<%= ff.check_box :crit_high_1 %>&nbsp&nbsp
+                <%= ff.label :crit_high_1, "High" %><p>
+                <% else %>
+                <%= ff.check_box :crit_low_2%>&nbsp&nbsp
+                <%= ff.label :crit_low_2, "Low" %><p>
+                <%= ff.check_box :crit_med_2%>&nbsp&nbsp
+                <%= ff.label :crit_med_2, "Medium" %><p>
+                <%= ff.check_box :crit_high_2 %>&nbsp&nbsp
+                <%= ff.label :crit_high_2, "High" %><p>
+                <% end %>
     		</p>
     			<h4>Interaction</h4>
     			<%= ff.check_box :interaction_independent %>&nbsp&nbsp
