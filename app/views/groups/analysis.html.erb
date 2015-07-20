@@ -18,6 +18,7 @@
  			<div class="field">
     		</p>
     			<h4>Critical Thinking</h4>
+                <p>Low - 
     			<%= ff.label :crit_low, "Low" %>
     			<%= ff.check_box :crit_low %>&nbsp&nbsp
     		    <%= ff.label :crit_med, "Medium" %>
@@ -26,14 +27,15 @@
     			<%= ff.check_box :crit_high %>&nbsp&nbsp
     		</p>
     			<h4>Interaction</h4>
-    			<%= ff.label :interaction_independent, "Independent" %>
     			<%= ff.check_box :interaction_independent %>&nbsp&nbsp
-    			<%= ff.label :interaction_quasi_int, "Quasi-Interactive" %>
-    			<%= ff.check_box :interaction_quasi_int %>&nbsp&nbsp
-    			<%= ff.label :elaborative, "Interactive(elaborative)" %>
+                <%= ff.label :interaction_independent, "Independent: message makes no reference to other student’s messages." %><p>
+                <%= ff.check_box :interaction_quasi_int %>&nbsp&nbsp
+    			<%= ff.label :interaction_quasi_int, "Quasi-Interactive: message refers to other student’s messages, but only as a preliminary point of reference before student continues with their own isolated analysis." %><p>
     			<%= ff.check_box :elaborative %>&nbsp&nbsp
-    			<%= ff.label :negotiating, "Interactive(negotiating)" %>
+    			<%= ff.label :elaborative, "Interactive (elaborative): message refers to another student’s message andfurther develops the theme." %><p>
     			<%= ff.check_box :negotiating %>&nbsp&nbsp
+    			<%= ff.label :negotiating, "Interactive (negotiating): message refers to another student’s message and engages in negotiation or debate." %><p>
+    			
     		</p>
 
   			</div>
