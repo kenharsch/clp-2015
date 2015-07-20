@@ -18,23 +18,27 @@
  			<div class="field">
     		</p>
     			<h4>Critical Thinking</h4>
-                <p>Low - 
-    			<%= ff.label :crit_low, "Low" %>
+                <p><b>Assessed based on evidence of the following: </b></p>
+                <p><b>Clarification -</b> The attempt to appraise and understand the exact nature of the problem.</p>
+                <p><b>Assessing evidence -</b> Evidence used to support inferences is assessed (credibility of sources, credibility of observations). </p>
+                <p><b>Making and judging inferences -</b> Inductive, deductive inferences and value judgements. Includes using evidence to support arguments.</p>
+                <p><b>Using appropriate strategies and tactics -</b> Evaluation of the adequacy of information and procedures for drawing conclusions and/or solving problems.</p>
     			<%= ff.check_box :crit_low %>&nbsp&nbsp
-    		    <%= ff.label :crit_med, "Medium" %>
+                <%= ff.label :crit_low, "Low" %>
     			<%= ff.check_box :crit_med %>&nbsp&nbsp
-    			<%= ff.label :crit_high, "High" %>
+    			<%= ff.label :crit_med, "Medium" %>
     			<%= ff.check_box :crit_high %>&nbsp&nbsp
+                <%= ff.label :crit_high, "High" %>
     		</p>
     			<h4>Interaction</h4>
     			<%= ff.check_box :interaction_independent %>&nbsp&nbsp
-                <%= ff.label :interaction_independent, "Independent: message makes no reference to other student’s messages." %><p>
+                <%= ff.label :interaction_independent, "Independent: " %>message makes no reference to other student’s messages.<p>
                 <%= ff.check_box :interaction_quasi_int %>&nbsp&nbsp
-    			<%= ff.label :interaction_quasi_int, "Quasi-Interactive: message refers to other student’s messages, but only as a preliminary point of reference before student continues with their own isolated analysis." %><p>
+    			<%= ff.label :interaction_quasi_int, "Quasi-Interactive: " %>message refers to other student’s messages, but only as a preliminary point of reference before student continues with their own isolated analysis.<p>
     			<%= ff.check_box :elaborative %>&nbsp&nbsp
-    			<%= ff.label :elaborative, "Interactive (elaborative): message refers to another student’s message andfurther develops the theme." %><p>
+    			<%= ff.label :elaborative, "Interactive (elaborative): " %>message refers to another student’s message andfurther develops the theme.<p>
     			<%= ff.check_box :negotiating %>&nbsp&nbsp
-    			<%= ff.label :negotiating, "Interactive (negotiating): message refers to another student’s message and engages in negotiation or debate." %><p>
+    			<%= ff.label :negotiating, "Interactive (negotiating): " %>message refers to another student’s message and engages in negotiation or debate.<p>
     			
     		</p>
 
