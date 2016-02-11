@@ -15,6 +15,11 @@ class UsersController < ApplicationController
     @evaluations = Evaluation.where(:user_id=>@user.id).order('created_at ASC')
   end
 
+  def replay
+    @user = User.find(params[:id])
+    @events = ::Ahoy::Event.where(user_id: @user.id)
+  end
+
 
   # GET /users/new
   def new
